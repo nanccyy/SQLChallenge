@@ -2,12 +2,12 @@ create table events(
     device_id text not null,
     connected_at timestamp not null,
     disconnected_at timestamp null,
-    unique(deviceId, connected_at),
+    unique(device_id, connected_at),
     CONSTRAINT time_check CHECK (connected_at <= disconnected_at)
 );
 
 insert into
-    events (deviceId, connected_at, disconnected_at)
+    events (device_id, connected_at, disconnected_at)
 values
     (
         'c4ca4238a0b923820dcc509a6f75849b',
