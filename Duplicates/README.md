@@ -1,10 +1,10 @@
-### Setup
+### STEP #1: Setup
 
  Open http://sqlfiddle.com/ or similar environment for running SQL queries
 and run queries from create.sql to create a table and fill it with values.  
 
 
- ### PREREQUISITES
+ ### STEP #2: PREREQUISITES
 
 The app collects data from devices every time they connect/disconnect. 
 
@@ -38,9 +38,14 @@ Because the events are forever gone, it's impossible to know the real disconnect
 The company agreed that the disconnection times for devices will be the same as times 
 of next connection event.
 
-### TASK
+### STEP #3A: TASK: UPDATE
 
-Write a query that'll find all disconnected_at fields with null values and update them with the next "connected_at" time for that device. (Check events.png) 
+Write a query that'll find all disconnected_at fields with null values and update them with the next "connected_at" time for that device. (See events.UPDATE.png) 
 
 If disconnected_at is null but that is the latest event that happened to the device, it means that device
 is online and that disconnected_at should stay NULL
+
+### STEP #3B: TASK: DELETE
+
+Write the query that'll delete all rows where disconnect is null EXCEPT for the most recent connection 
+event with an empty disconnect. (See events.DELETE.png) 
